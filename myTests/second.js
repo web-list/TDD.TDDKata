@@ -70,45 +70,67 @@ suite("using add method", function () {
             let result = add(input);
             assert.equal(result, 4);
         });
-    });
 
-    suite("has separator", function () {
-        test("when input is 2,10 then result is 12", function () {
-            let input = '2,10';
-            let result = add(input);
-            assert.equal(result, 2 + 10);
-        });
-
-        test("when input is 1,2,3 then result is 6", function () {
-            let input = '1,2,3';
-            let result = add(input);
-            assert.equal(result, 1 + 2 + 3);
-        });
-    });
-
-    suite("different separators", function () {
-        test("when input is 6,12\n44 then result is 62", function () {
-            let input = '6,12\n44';
-            let result = add(input);
-            assert.equal(result, 6 + 12 + 44);
+        suite("negative numbers", function () {
+            test("when input is -7 then result is -7", function () {
+                let input = '-7';
+                let result = add(input);
+                assert.equal(result, -7);
+            });
         });
 
     });
 
-    suite("incorrect input", function () {
-        test("when input is 1,\n then no result", function () {
-            let input = '1,\n';
-            let result = add(input);
-            assert.equal(result, null);
-        });
-    });
+    suite("with separators", function () {
 
-    suite("any separators", function () {
-        test("when input is //;\n2;4;8 then result is 14", function () {
-            let input = '//;\n2;4;8';
-            let result = add(input);
-            assert.equal(result, 2 + 4 + 8);
+        suite("has separator", function () {
+            test("when input is 2,10 then result is 12", function () {
+                let input = '2,10';
+                let result = add(input);
+                assert.equal(result, 2 + 10);
+            });
+
+            test("when input is 1,2,3 then result is 6", function () {
+                let input = '1,2,3';
+                let result = add(input);
+                assert.equal(result, 1 + 2 + 3);
+            });
+
+            suite("negative numbers", function () {
+                test("when input is 1,-2,3 then result is 2", function () {
+                    let input = '1,-2,3';
+                    let result = add(input);
+                    assert.equal(result, 1 + (-2) + 3);
+                });
+            })
+
         });
+
+        suite("different separators", function () {
+            test("when input is 6,12\n44 then result is 62", function () {
+                let input = '6,12\n44';
+                let result = add(input);
+                assert.equal(result, 6 + 12 + 44);
+            });
+
+        });
+
+        suite("incorrect input", function () {
+            test("when input is 1,\n then no result", function () {
+                let input = '1,\n';
+                let result = add(input);
+                assert.equal(result, null);
+            });
+        });
+
+        suite("any separators", function () {
+            test("when input is //;\n2;4;8 then result is 14", function () {
+                let input = '//;\n2;4;8';
+                let result = add(input);
+                assert.equal(result, 2 + 4 + 8);
+            });
+        });
+
     });
 
 });
