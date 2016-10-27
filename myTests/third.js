@@ -118,7 +118,7 @@ suite("testing method add", function () {
             });
         });
 
-        suite("ignoring number more 100", function () {
+        suite("ignoring number more 1000", function () {
             test("when input is 2,1001 then result 2", function () {
                 let input = "2,1001";
                 let result = add(input);
