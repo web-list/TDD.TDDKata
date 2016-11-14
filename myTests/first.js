@@ -35,6 +35,8 @@ function calc(input) {
 
 suite("calc working", function () {
 
+    // антипаттерн - схожие тесты не объединены в один suite
+
     test("when input is '' then result is 0", function () {
         var input = '';
         var result = calc(input);
